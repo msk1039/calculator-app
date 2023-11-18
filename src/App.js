@@ -44,9 +44,24 @@ function App() {
     setCalc(value);
   }
 
+  const clear = () => {
+    setCalc('');
+    setResult('');
+  }
+  const sign = () => {
+    if(calc == ''){
+      return;
+    }
+    if(calc.slice(0,1) == '-'){
+      setCalc(calc.slice(1));
+    }else{
+      setCalc('-' + calc);
+    }
+  }
 
-
-
+  const pie = () => {
+    setCalc(calc+3.141);
+  }
 
   return (
     <div className="App">
@@ -71,6 +86,9 @@ function App() {
                 <button onClick={()=> updateCalc('0')}>0</button>
                 <button onClick={()=> updateCalc('.')}>.</button>
                 <button onClick={calculate}>=</button>
+                <button onClick={sign}>+/-</button>
+                <button onClick={pie}>⫪</button>
+                <button onClick={clear}>AC</button>
                
           </div>
             
